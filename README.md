@@ -8,6 +8,7 @@ Official PyTorch implementation of the paper:
 ## 📥 Installation
 
 ```bash
+git clone https://github.com/jie040109/Conda.git
 cd Conda
 pip install -e .
 ```
@@ -23,7 +24,37 @@ Below are the exact steps to reproduce both examples.
 
 ---
 
-## ✅ 1. GPT-2 
+## ✅ 1. LLaMA
+### **Step 1 — Install dependencies**
+```bash
+cd examples/llama
+conda create -n llama python=3.8
+conda activate llama
+pip install -r requirements.txt
+```
+### **Step 2 — Conda for LLaMA pre-training**
+```bash
+# llama-60m
+bash scripts/llama_60m_conda.sh
+# llama-130m
+bash scripts/llama_130m_conda.sh
+# llama-350m
+bash scripts/llama_350m_conda.sh
+# llama-1b
+bash scripts/llama_1b_conda.sh
+```
+
+### **Step 3 — Other optimizers for LLaMA pre-training**
+Scripts for alternative optimizers (AdamW, Muon, SOAP, Adafactor) are located in:
+```bash
+examples/llama/scripts/
+```
+Run them in a similar manner, eg.
+```bash
+bash scripts/llama_60m_muon.sh
+```
+
+## ✅ 2. GPT-2 
 
 ### **Step 1 — Install dependencies**
 ```bash
@@ -37,4 +68,14 @@ conda activate gpt2
 bash scripts/train_gpt2_125m_conda.sh
 # gpt2-355m
 bash scripts/train_gpt2_355m_conda.sh
+```
+
+### **Step 3 — Other optimizers for GPT-2 pre-training**
+Scripts for alternative optimizers (AdamW, Muon, SOAP, Adafactor) are located in:
+```bash
+examples/gpt2/scripts/
+```
+Run them in a similar manner, eg.
+```bash
+bash scripts/train_gpt2_125m_muon.sh
 ```

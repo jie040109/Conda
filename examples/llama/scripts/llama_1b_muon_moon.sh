@@ -11,6 +11,6 @@ torchrun --standalone --nproc_per_node 8 torchrun_main.py \
     --betas 0.9 0.95 \
     --dtype bfloat16 \
     --eval_every 1000 \
-    --save_dir checkpoints/llama_1b_muon_moonlight_lr_0.001_wd_0.1_adamw_betas_0.9_0.95_grad_clip_1.0 \
+    --save_dir checkpoints/llama_1b_muon_lr_0.001_wd_0.1_adamw_betas_0.9_0.95_grad_clip_1.0 \
     --optimizer muon \
-    --wandb_name llama_1b_muon_moonlight_lr_0.001_wd_0.1_adamw_betas_0.9_0.95_grad_clip_1.0 \
+    --wandb_name llama_1b_muon_lr_0.001_wd_0.1_adamw_betas_0.9_0.95_grad_clip_1.0 \

@@ -10,6 +10,6 @@ torchrun --standalone --nproc_per_node 2 torchrun_main.py \
     --dtype bfloat16 \
     --eval_every 1000 \
     --save_every 10000\
-    --save_dir checkpoints/llama_130m_muon_moonlight_lr_0.001_wd_0_adamw_betas_0.9_0.95  \
+    --save_dir checkpoints/llama_130m_muon_lr_0.001_wd_0_adamw_betas_0.9_0.95  \
     --optimizer muon \
-    --wandb_name llama_130m_muon_moonlight_lr_0.001_wd_0_adamw_betas_0.9_0.95 \
+    --wandb_name llama_130m_muon_lr_0.001_wd_0_adamw_betas_0.9_0.95 \
