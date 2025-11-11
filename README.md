@@ -32,7 +32,12 @@ conda create -n llama python=3.8
 conda activate llama
 pip install -r requirements.txt
 ```
-### **Step 2 — Conda for LLaMA pre-training**
+### **Step 2 — Prepare C4 datasets**
+```bash
+bash download_c4.sh 
+```
+
+### **Step 3 — Conda for LLaMA pre-training**
 ```bash
 # llama-60m
 bash scripts/llama_60m_conda.sh
@@ -44,7 +49,7 @@ bash scripts/llama_350m_conda.sh
 bash scripts/llama_1b_conda.sh
 ```
 
-### **Step 3 — Other optimizers for LLaMA pre-training**
+### **Step 4 — Other optimizers for LLaMA pre-training**
 Scripts for alternative optimizers (AdamW, Muon, SOAP, Adafactor) are located in:
 ```bash
 examples/llama/scripts/
@@ -62,7 +67,14 @@ cd examples/gpt2
 conda env create -f environment.yml
 conda activate gpt2
 ```
-### **Step 2 — Conda for GPT-2 pre-training**
+
+### **Step 2 — Prepare Openwebtext datasets**
+
+```bash
+python data/openwebtext/prepare.py
+```
+
+### **Step 3 — Conda for GPT-2 pre-training**
 ```bash
 # gpt2-125m
 bash scripts/train_gpt2_125m_conda.sh
@@ -70,7 +82,7 @@ bash scripts/train_gpt2_125m_conda.sh
 bash scripts/train_gpt2_355m_conda.sh
 ```
 
-### **Step 3 — Other optimizers for GPT-2 pre-training**
+### **Step 4 — Other optimizers for GPT-2 pre-training**
 Scripts for alternative optimizers (AdamW, Muon, SOAP, Adafactor) are located in:
 ```bash
 examples/gpt2/scripts/
