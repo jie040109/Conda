@@ -1,6 +1,5 @@
 # Conda
 
-**Conda: Column-Normalized Adam for Training Large Language Models Faster**  
 Official PyTorch implementation of the paper:  
 [“Conda: Column-Normalized Adam for Training Large Language Models Faster”](https://arxiv.org/abs/2509.24218)
 
