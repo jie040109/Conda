@@ -30,6 +30,7 @@ Below are the exact steps to reproduce both examples.
 cd examples/llama
 conda create -n llama python=3.10
 conda activate llama
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt
 ```
 ### **Step 2 — Prepare C4 datasets**
