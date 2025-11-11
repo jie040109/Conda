@@ -28,7 +28,7 @@ Below are the exact steps to reproduce both examples.
 ### **Step 1 — Install dependencies**
 ```bash
 cd examples/llama
-conda create -n llama python=3.8
+conda create -n llama python=3.10
 conda activate llama
 pip install -r requirements.txt
 ```
