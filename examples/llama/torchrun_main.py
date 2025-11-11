@@ -59,7 +59,7 @@ def parse_args(args):
     parser.add_argument("--save_dir", type=str, default=None)
     parser.add_argument("--tags", type=str, default=None)
     parser.add_argument("--dtype", type=str, default="bfloat16" if torch.cuda.is_bf16_supported() else "float32")
-    parser.add_argument("--workers", type=int, default=8)
+    parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--name", type=str, default="test")
     parser.add_argument("--grad_clipping", type=float, default=0.0)   
@@ -287,7 +287,6 @@ def main(args):
         pbar = tqdm(total=args.num_training_steps - update_step, desc="Update steps", ncols=80)
     
     if 'conda' in args.optimizer.lower():
-        # make parameters with "rank" to a single group, if param_name has "mlp" or "attn"
         conda_params = []
         target_modules_list = ["attn", "mlp"]
         for module_name, module in model.named_modules():
@@ -301,9 +300,7 @@ def main(args):
             conda_params.append(module.weight)
 
         id_conda_params = [id(p) for p in conda_params]
-        # make parameters without "rank" to another group
         regular_params = [p for p in model.parameters() if id(p) not in id_conda_params]
-        # then call galore_adamw
         param_groups = [{'params': regular_params}, 
                         {'params': conda_params, 'update_proj_gap': args.update_proj_gap, 'scale': args.conda_scale, 'proj_type': args.proj_type}]
 
