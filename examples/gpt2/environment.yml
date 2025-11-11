@@ -1,4 +1,3 @@
-
 name: gpt2
 channels:
   - pytorch
@@ -31,7 +30,7 @@ dependencies:
   - idna=3.4=py310h06a4308_0
   - intel-openmp=2023.1.0=hdb19cb5_46306
   - jinja2=3.1.2=py310h06a4308_0
-  # - jpeg=9b=0
+  - jpeg=9b=0
   - lame=3.100=h7b6447c_0
   - lcms2=2.12=h3be6417_0
   - ld_impl_linux-64=2.38=h1181459_1
