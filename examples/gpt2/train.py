@@ -50,7 +50,7 @@ always_save_checkpoint = True # if True, always save a checkpoint after each eva
 init_from = 'scratch' # 'scratch' or 'resume' or 'gpt2*'
 # wandb logging
 wandb_log = True # disabled by default
-wandb_project = 'gpt2_pretraining'
+wandb_project = 'gpt2_owt_pretraining'
 wandb_run_name = 'gpt2_adamw' # 'run' + str(time.time())
 # data
 dataset = 'openwebtext'
@@ -136,7 +136,7 @@ ctx = nullcontext() if device_type == 'cpu' else torch.amp.autocast(device_type=
 
 # poor man's data loader
 # data_dir = os.path.join('data', dataset)
-data_dir = '/mnt/bn/ymdong-opensource/data/openwebtext_FRP'
+data_dir = 'your/path/to/openwebtext'  # please set your own path to the preprocessed openwebtext dataset
 
 def get_batch(split):
     # We recreate np.memmap every batch to avoid a memory leak, as per

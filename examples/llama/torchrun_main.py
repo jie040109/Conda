@@ -99,7 +99,7 @@ def parse_args(args):
 @torch.no_grad()
 def evaluate_model(model, preprocess_batched, pad_idx, global_rank, world_size, device, batch_size):
     _time = time.time()
-    val_data = datasets.load_dataset("/data_path/c4/en", split='validation', streaming=True)
+    val_data = datasets.load_dataset("/data_path/c4/en", split='validation', streaming=True) # please set your own path to the c4 dataset
     val_data = val_data.shuffle(seed=42)
     logger.info(f"Loaded validation dataset in {time.time() - _time:.2f} seconds")
 
@@ -192,7 +192,8 @@ def main(args):
         logger.info(f"{k:30} {v}")
     logger.info("*" * 40)
 
-    data = datasets.load_dataset("/data_path/c4/en/", split='train', streaming=True)
+    #Please set your own path to the c4 dataset
+    data = datasets.load_dataset("/data_path/c4/en/", split='train', streaming=True) 
 
     seed_for_shuffle = 42 
     
